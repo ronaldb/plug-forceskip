@@ -3,9 +3,11 @@ API.on(API.ADVANCE, callback);
 function callback () {
 
 	var a = API.getMedia().cid;
+	var a_dj = API.getDJ().id;
 	setTimeout(function() {
 	    var b = API.getMedia().cid;
-	    if (a === b) {
+	    var b_dj = API.getDJ().id;
+	    if ((a.cid === b.cid) && (a_dj === b_dj)) {
 	        API.sendChat("Track stuck, force skipping!");
 	        API.moderateForceSkip();
 	    }
